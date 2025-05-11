@@ -1,8 +1,20 @@
+h1 {
+    color: #ffff
+}
+
+h2 {
+    color: #ffff
+}
+
+p {
+    color: #ffff
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #2d2929;
     text-align: center;
 }
 
@@ -27,6 +39,33 @@ body {
 }
 
 .caption {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.imageCollectionMenu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    padding: 30px;
+}
+
+.collection {
+    max-width: 80%;
+}
+
+.collection img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.collectionDescription {
     margin-top: 5px;
     font-size: 16px;
     color: #555;
