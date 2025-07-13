@@ -1,25 +1,13 @@
  
  <html>
-        <head>
-        <h1>Dungeons & Dragons campaign</h1>
+    <head>
+        <title>Dungeons & Dragons campaign</title>
         <link rel="stylesheet" href="styles.css"> 
+        <script src="buildGallery.js" defer></script>
     </head>
 
-    <body>
-        <div class="gallery">
-            <div class="image-item">
-                <img src="https://nickyp916.github.io/Barely-Fine-Art/images\dnd\Digital art\the first four.jpg">
-                <p class="caption">the first four</p>
-            </div>
-            <div class="image-item">
-                <img src="https://nickyp916.github.io/Barely-Fine-Art/images\dnd\Digital art\drinks in the tavern.jpg">
-                <p class="caption">drinks in the tavern</p>
-            </div>
-            <div class="image-item">
-                <img src="https://nickyp916.github.io/Barely-Fine-Art/images\dnd\Digital art\battle with Gabriel.jpg">
-                <p class="caption">battle with Gabriel</p>
-            </div>
-            
-          </div>
+    <body onload="Build('Digital art', true)">
+        <h1>Dungeons & Dragons campaign</h1>
+        <div class="gallery" id="gallery"></div>
     </body>
  </html>
