@@ -26,6 +26,15 @@ body {
     padding: 20px;
 }
 
+.gallerySmall {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
 .image-item {
     max-width: 80%;
 }

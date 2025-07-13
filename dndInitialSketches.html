@@ -1,11 +1,34 @@
- 
- <html>
-        <head>
-        <h1>Initial Sketches</h1>
+<html>
+    <head>
+        <title>Initial practice sketches</title>
         <link rel="stylesheet" href="styles.css"> 
     </head>
+<body>
+    <h1>Initial practice sketches</h1>
+    <div class="gallerySmall" id="gallery"></div>
+</body>  
+<script>
+const repo = "nickyp916/Barely-Fine-Art";
+const folderPath = "images/dnd/Initial practice sketches";
+const gallery = document.getElementById("gallery");
 
-    <body>
+fetch(`https://api.github.com/repos/${repo}/contents/${folderPath}`)
+  .then(response => response.json())
+  .then(files => {
+    files.forEach(file => {
+      if (file.type === "file" && /\.(jpg|jpeg|png|gif)$/i.test(file.name)) {
+        const img = document.createElement("img");
+        img.src = file.download_url;
+        img.alt = file.name;
 
-    </body>
- </html>
+        const container = document.createElement("div");
+        container.className = "image-item";
+        container.appendChild(img);
+
+        gallery.appendChild(container);
+      }
+    });
+  })
+  .catch(error => console.error("Error fetching images:", error));
+</script>
+</html>
