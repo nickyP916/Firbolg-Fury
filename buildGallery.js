@@ -1,9 +1,8 @@
-function Build(directory, inclueCaptions){
+function Build(folderPath, inclueCaptions){
     const repo = "nickyp916/Barely-Fine-Art";
-    const folderPath = "images/dnd/";
     const gallery = document.getElementById("gallery");
 
-    fetch(`https://api.github.com/repos/${repo}/contents/${folderPath}${directory}`)
+    fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
     .then(response => response.json())
     .then(files => {
         files.forEach(file => {
