@@ -12,6 +12,7 @@ function Build(directory, inclueCaptions){
             const fileName = file.name.replace(/\.[^/.]+$/, "");
             img.src = file.download_url;
             img.alt = fileName;
+            img.addEventListener("click", () => enlargeImage(img));
 
             const container = document.createElement("div");
             container.className = "image-item";
@@ -28,4 +29,18 @@ function Build(directory, inclueCaptions){
         });
     })
     .catch(error => console.error("Error fetching images:", error));
-}       
+}
+
+function enlargeImage(img){
+    if (img.requestFullscreen) {
+        img.requestFullscreen(); //Modern browsers
+    } else if (img.webkitRequestFullscreen) { // Safari
+        img.webkitRequestFullscreen();
+    } else if (img.msRequestFullscreen) { // IE11
+        img.msRequestFullscreen();
+    }
+    else{
+        console.warn("Fullscreen API not supported");
+    }
+
+}
