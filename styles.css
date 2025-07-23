@@ -1,9 +1,15 @@
 h1 {
-    color: #ffffffde
+    padding-top: 50px;
+    padding-bottom: 30px;
+    color: #ffffffde;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
 }
 
 h2 {
-    color: #ffffffde
+    color: #ffffffde;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 
 h3 {
@@ -16,7 +22,7 @@ p {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #2d2929;
@@ -55,6 +61,7 @@ body {
 .caption {
     margin-top: 5px;
     font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #ffffffde;
 }
 
@@ -97,8 +104,9 @@ body {
 
 ul.breadcrumb li {
   display: inline;
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffffde;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 ul.breadcrumb li+li:before {
