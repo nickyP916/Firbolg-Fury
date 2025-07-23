@@ -1,13 +1,18 @@
 h1 {
-    color: #ffff
+    color: #ffffffde
 }
 
 h2 {
-    color: #ffff
+    color: #ffffffde
+}
+
+h3 {
+    color: #ffffffde
+    
 }
 
 p {
-    color: #ffff
+    color: #ffffffde
 }
 
 body {
@@ -50,7 +55,7 @@ body {
 .caption {
     margin-top: 5px;
     font-size: 16px;
-    color: #555;
+    color: #ffffffde;
 }
 
 .imageCollectionMenu {
@@ -82,7 +87,7 @@ body {
 .collectionDescription {
     margin-top: 5px;
     font-size: 16px;
-    color: #555;
+    color: #ffffffde;
 }
 
 .breadcrumb {
@@ -93,12 +98,12 @@ body {
 ul.breadcrumb li {
   display: inline;
   font-size: 18px;
-  color: white;
+  color: #ffffffde;
 }
 
 ul.breadcrumb li+li:before {
   padding: 8px;
-  color: white;
+  color: #ffffffde;
   content: "/\00a0";
 }
 
