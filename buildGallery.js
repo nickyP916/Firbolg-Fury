@@ -1,5 +1,5 @@
 function Build(folderPath, inclueCaptions){
-    const repo = "nickyp916/Barely-Fine-Art";
+    const repo = "nickyp916/Firbolg-Fury";
     const gallery = document.getElementById("gallery");
 
     fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
