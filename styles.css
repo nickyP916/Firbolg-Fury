@@ -2,13 +2,13 @@ h1 {
     padding-top: 50px;
     padding-bottom: 30px;
     color: #ffffffde;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
 }
 
 h2 {
     color: #ffffffde;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
 
