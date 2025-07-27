@@ -4,12 +4,11 @@ async function Build(folderPath, inclueCaptions){
     gallery.innerHTML = "";
 
     try {
-        const imageData = await fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}/imageData.json`)
-        .then(response => response.json());
+        const imageDataMeta = await (await fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}/imageData.json`)).json();
+        const imageData = await (await fetch(imageDataMeta.download_url)).json();
 
-
-        const files = fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
-        .then(response => response.json());
+        const files = await fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
+        .then(async response => await response.json());
 
         const images = files
         .filter(file => file.type === "file" && /\.(jpg|jpeg|png)$/i.test(file.name))
