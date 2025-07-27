@@ -18,7 +18,10 @@ h3 {
 }
 
 p {
-    color: #ffffffde
+    color: #ffffffde;
+    opacity: 0.7;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 
 body {
