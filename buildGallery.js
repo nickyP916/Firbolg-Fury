@@ -1,12 +1,30 @@
-function Build(folderPath, inclueCaptions){
+async function Build(folderPath, inclueCaptions){
     const repo = "nickyp916/Firbolg-Fury";
     const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
 
-    fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
-    .then(response => response.json())
-    .then(files => {
-        files.forEach(file => {
-        if (file.type === "file" && /\.(jpg|jpeg|png)$/i.test(file.name)) {
+    try {
+        const imageData = await fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}/imageData.json`)
+        .then(response => response.json());
+
+
+        const files = fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
+        .then(response => response.json());
+
+        const images = files
+        .filter(file => file.type === "file" && /\.(jpg|jpeg|png)$/i.test(file.name))
+        .map(file => {
+            const meta = imageData.find(img => img.filename === file.name) || {};
+                    return {
+                        ...file,
+                        description: meta.description || "",
+                        date: meta.date || ""
+                    };
+                });
+
+        images.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        images.forEach(file => {
             const img = document.createElement("img");
             const fileName = file.name.replace(/\.[^/.]+$/, "");
             img.src = file.download_url;
@@ -23,11 +41,20 @@ function Build(folderPath, inclueCaptions){
                 container.appendChild(caption);
             }
 
+            if(file.description){
+                const description = document.createElement("p");
+                description.textContent = file.description;
+                container.appendChild(description);
+            }
+
             gallery.appendChild(container);
-        }
-        });
-    })
-    .catch(error => console.error("Error fetching images:", error));
+    });
+
+    }
+    catch (error) {
+        console.error("Error fetching gallery data:", error);
+    }
+    
 }
 
 function enlargeImage(img){
