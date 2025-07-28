@@ -19,9 +19,8 @@ h3 {
 
 p {
     color: #ffffffde;
-    opacity: 0.7;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+    opacity: 0.7;
 }
 
 body {
@@ -126,4 +125,12 @@ ul.breadcrumb li a {
 ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
+}
+
+summary {
+    cursor: pointer;
+    color: #ffffffde;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 8px;
+    opacity: 0.9;
 }

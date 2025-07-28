@@ -35,19 +35,22 @@ async function Build(folderPath, inclueCaptions){
             container.appendChild(img);
 
             if(inclueCaptions){
-                const caption = document.createElement("p");
-                caption.textContent = fileName;
-                container.appendChild(caption);
-            }
-
-            if(file.description){
                 const description = document.createElement("p");
                 description.textContent = file.description;
-                container.appendChild(description);
+                
+                const summary = document.createElement("summary");
+                summary.textContent = fileName;
+                
+                const details = document.createElement("details");
+                details.appendChild(summary);
+                
+                details.appendChild(description);
+                            
+                container.appendChild(details);   
             }
 
             gallery.appendChild(container);
-    });
+        });
 
     }
     catch (error) {
