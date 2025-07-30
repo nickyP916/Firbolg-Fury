@@ -1,9 +1,10 @@
-async function Build(folderPath, inclueCaptions){
+async function Build(folderPath, includeCaptions){
     const repo = "nickyp916/Firbolg-Fury";
     const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
 
-    try {
+    if(includeCaptions){
+        try {
         const imageDataMeta = await (await fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}/imageData.json`)).json();
         const imageData = await (await fetch(imageDataMeta.download_url)).json();
 
@@ -34,8 +35,7 @@ async function Build(folderPath, inclueCaptions){
             container.className = "image-item";
             container.appendChild(img);
 
-            if(inclueCaptions){
-                const description = document.createElement("p");
+            const description = document.createElement("p");
                 description.textContent = file.description;
                 
                 const summary = document.createElement("summary");
@@ -46,8 +46,7 @@ async function Build(folderPath, inclueCaptions){
                 
                 details.appendChild(description);
                             
-                container.appendChild(details);   
-            }
+                container.appendChild(details);  
 
             gallery.appendChild(container);
         });
@@ -55,8 +54,29 @@ async function Build(folderPath, inclueCaptions){
     }
     catch (error) {
         console.error("Error fetching gallery data:", error);
+    }    
     }
-    
+    else{
+        fetch(`https://api.github.com/repos/${repo}/contents/images/${folderPath}`)
+    .then(response => response.json())
+    .then(files => {
+        files.forEach(file => {
+        if (file.type === "file" && /\.(jpg|jpeg|png)$/i.test(file.name)) {
+            const img = document.createElement("img");
+            img.src = file.download_url;
+            img.addEventListener("click", () => enlargeImage(img));
+
+            const container = document.createElement("div");
+            container.className = "image-item";
+            container.appendChild(img);
+
+            gallery.appendChild(container);
+        }
+        });
+    })
+    .catch(error => console.error("Error fetching images:", error));
+    }
+       
 }
 
 function enlargeImage(img){
